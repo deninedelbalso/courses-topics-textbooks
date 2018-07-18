@@ -8,6 +8,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Textbook {
 	
+	private String title;
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -37,7 +40,6 @@ public class Textbook {
 	private long id;
 	
 	
-	private String title;
 	
 	@ManyToOne
 	private Course course;
@@ -48,5 +50,6 @@ public class Textbook {
 		this.course = course;
 	}
 
-
+	public Textbook() {
+	}
 }

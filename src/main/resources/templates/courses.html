@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>A Course</title>
+</head>
+<body>
+	<h1>A Single Course</h1>
+
+	<div th:each = "course: ${courses}">
+		<p th:text = "${course.name}"></p>
+		<p th:text = "${course.description}"></p>
+		<a href="http://localhost:8080/show-courses">Back to home</a>
+	</div>
+
+<form method ="POST">
+  <div>
+	<label>Enter course name:</label>
+	<input type = "text name" = "courseName" />
+  </div>
+
+  <div>
+	<label>Enter course description:</label>
+	<input type = "text name" = "courseDescription" />
+  </div>
+
+  <div>
+	<label>Enter topic:</label>
+	<input type = "text name" = "topicName" />
+  </div>
+
+  <div>
+	<label>Enter topic:</label>
+	<button: th:formaction="@{add-course}"> add course</button>
+  </div>
+</form>
+
+<form method ="POST">
+  <div>
+	<label>Enter course name:</label>
+	<input type = "text name" = "courseName" />
+  </div>
+
+  <div>
+	<button: th:formaction="@{delete-course}"> delete course</button>
+  </div>  
+</form>
+
+<form method ="POST">
+  <div>
+	<label>Enter topic name:</label>
+	<input type = "text name" = "topicName" />
+  </div>
+  <div>
+	<button: th:formaction="@{find-by-topic}"> find courses</button>
+  </div>
+
+  <form method ="GET">
+  <div>
+  		<button: th:formaction="@{sort-courses}">sort</button>
+</div>
+  </form>
+
+
+
+</body>
+</html>
