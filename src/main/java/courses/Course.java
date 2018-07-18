@@ -1,14 +1,18 @@
 package courses;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import static java.lang.String.format;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Course {
@@ -19,10 +23,13 @@ public class Course {
 
 	private String name;
 	private String description;
-
+	
+	
+	@JsonIgnore
 	@ManyToMany
 	private Collection<Topic> topics;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy= "course")
 	private Collection<Textbook>textbooks;
 
@@ -47,6 +54,14 @@ public class Course {
 		return textbooks;
 	}
 
+	
+	public Collection<String>getTopicUrls(){
+		Collection<String>urls= new ArrayList<>();
+		for(Topic t:topics) {
+			urls.add(format("/courses/%d/topics/%s", this.getId(), t.getName()));
+	}
+		return urls;
+	}
 	public Course() {
 	}
 	

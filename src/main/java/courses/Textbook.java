@@ -5,12 +5,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Textbook {
+
+	@Id
+	@GeneratedValue
+	private long id;
 	
 	private String title;
-
 	
+	@JsonIgnore
+	@ManyToOne
+	private Course course;
+	
+	public long getId() {
+		return id;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public Textbook() {
+		
+	}
+
+	public Textbook(String title, Course course) {
+		this.title = title;
+		this.course = course;
+		
+		
+		
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -18,7 +47,6 @@ public class Textbook {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -34,22 +62,4 @@ public class Textbook {
 		return true;
 	}
 
-
-	@Id
-	@GeneratedValue
-	private long id;
-	
-	
-	
-	@ManyToOne
-	private Course course;
-	
-
-	public Textbook(String title, Course course) {
-		this.title = title;
-		this.course = course;
-	}
-
-	public Textbook() {
-	}
 }

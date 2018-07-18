@@ -56,7 +56,7 @@ public class CourseController {
 		
 		
 	}
-	@RequestMapping("/topics")
+	@RequestMapping("/show-topics")
 	public String findAllTopics(Model model) {
 		model.addAttribute("topics", topicRepo.findAll());
 		return("topics");
