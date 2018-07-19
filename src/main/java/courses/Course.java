@@ -58,7 +58,7 @@ public class Course {
 	public Collection<String>getTopicUrls(){
 		Collection<String>urls= new ArrayList<>();
 		for(Topic t:topics) {
-			urls.add(format("/courses/%d/topics/%s", this.getId(), t.getName()));
+			urls.add(format("/courses/%d/topics/%s", this.getId(), t.getName().toLowerCase()));
 	}
 		return urls;
 	}

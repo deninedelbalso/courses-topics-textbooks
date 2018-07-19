@@ -31,7 +31,7 @@ public class CourseRestController {
 
 	@RequestMapping("/topics/{topicName}")
 	public Collection<Course> findAllCoursesByTopic(@PathVariable(value = "topicName") String topicName) {
-       Topic topic = topicRepo.findByName(topicName);
+       Topic topic = topicRepo.findByNameIgnoreCaseLike(topicName);
        return courseRepo.findByTopicsContains(topic);
 	}
 }
