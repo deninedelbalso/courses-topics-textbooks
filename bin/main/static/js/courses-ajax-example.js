@@ -17,16 +17,20 @@ xhr.onreadystatechange = function() {
                 	const descripton = document.createElement('p')
                 	description.innerText = course.description;
 
-                	const topicUrls= [];
+                	const topics= [];
                 	course.topicUrls.forEach(topicUrl =>{
                 		const topicUrlElement = document.createElement('li')
                 		topicUrlElement.innerHtml= 'course topics: <a href="${topicUrl}">${topicUrl}</a>`
- 						topicUrls.push(topicUrlElement)
+ 						topics.push(topicUrlElement)
+
+ 					})
+
+
                 	container.appendChild(courseItem)
                 	courseItem.appendChild(name)
                 	courseItem.appendChild(description)
 
-                	topicUrl.forEach(topicUrl => courseItem.appendChild(topicUrl))
+                	topics.forEach(topicUrl => courseItem.appendChild(topicUrl))
 
                 });
 
