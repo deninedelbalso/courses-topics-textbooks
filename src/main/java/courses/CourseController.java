@@ -133,5 +133,21 @@ public class CourseController {
 
 		return"/courses";	
 }
+	
+//	@RequestMapping("/add-textbook")
+//	public String addTextbook (String textbookTitle String courseName) {
+//		Textbook new textbook= topicRepo.findByTitle(textbookTitle);
+//		Course course = courseRepo.findByName(courseName);
+//		
+//		if(newTextbook == null ) {
+//			newTextbook = new textBook(textbookTitle, course);
+//			textbookRepo.save(newTextbook);
+//	
+//	course.addTextbook(newTextbook);
+//	courseRepo.save(course);
+//	
+//	return "/show-textbooks";
+////			
+
 
 }

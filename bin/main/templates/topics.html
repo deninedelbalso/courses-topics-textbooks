@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 
-<html xmlns:th="http://www.thymleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>A list of topics</title>
+<title>A list of topics</title>
 </head>
 
 <body>
@@ -13,9 +13,11 @@
 	
 	<div th:each="topic: ${topics}">
 		<h2>
-		<a th:href="@{/topic(id=${topic.id})}" th:text="${topic.name}"></a>
+			<a th:href="@{/topic(id=${topic.id})}" th:text="${topic.name}"></a>
 		</h2>
-	</div>		
+	</div>
+
+	<a href="http://localhost:8080/show-courses">Back to home</a>
 
 </body>
 </html>

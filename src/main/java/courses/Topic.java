@@ -10,37 +10,36 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Topic {
 
+
 	@Id
 	@GeneratedValue
 	private long id;
-	 
+	
 	private String name;
 	
 	@ManyToMany(mappedBy = "topics")
 	private Collection<Course> courses;
 	
-	
 	public long getId() {
+		
 		return id;
 	}
 	
-	public String getName() {
+	public String getName() {		
 		return name;
 	}
-	
 	public Collection<Course> getCourses() {
 		return courses;
 	}
-	
-
 	//default no args constructor required by jpa
 	public Topic() {
+		
 	}
 	
 	public Topic(String name) {
 		this.name = name;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -48,7 +47,7 @@ public class Topic {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -62,14 +61,6 @@ public class Topic {
 			return false;
 		return true;
 	}
-
-
-
-
-
-
-	
-
 
 
 }
